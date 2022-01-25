@@ -39,54 +39,7 @@
 
 <body>
     <div class="button hidden">Open Chat</div>
-    <!-- 
-    <script>
-        var button = document.querySelector('.button')
-        button.addEventListener('click', onButtonClick)
-
-        function onButtonClick() {
-            BE_API.openChatWindow()
-            hideButton()
-        }
-
-        function showButton() {
-            button.classList.remove('hidden')
-        }
-
-        function hideButton() {
-            button.classList.add('hidden')
-        }
-
-        window.BE_API = window.BE_API || {}
-
-        window.BE_API.onLoad = function () {
-            window.BE_API.hideChatWindow()
-            showButton()
-        }
-
-        window.BE_API.onChatWindowOpen = function () {
-            hideButton()
-        }
-
-        window.BE_API.onChatWindowClose = function () {
-            window.BE_API.hideChatWindow()
-        }
-
-        window.BE_API.onChatWindowHide = function () {
-            showButton()
-        }
-    </script> -->
-    <!----> Start of ChatBot (www.chatbot.com) code -->
-    <!-- <script type="text/javascript">
-        window.__be = window.__be || {};
-        window.__be.id = "61e817790bf636000648b854";
-        (function () {
-            var be = document.createElement('script'); be.type = 'text/javascript'; be.async = true;
-            be.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.chatbot.com/widget/plugin.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(be, s);
-        })();
-    </script> -->
-    <!-- End of ChatBot code -->
+    ChatBot
     <script>
         function initFreshChat() {
             window.fcWidget.init({
