@@ -76,8 +76,8 @@
             showButton()
         }
     </script> -->
-    <!-- Start of ChatBot (www.chatbot.com) code -->
-    <script type="text/javascript">
+    <!----> Start of ChatBot (www.chatbot.com) code -->
+    <!-- <script type="text/javascript">
         window.__be = window.__be || {};
         window.__be.id = "61e817790bf636000648b854";
         (function () {
@@ -85,9 +85,17 @@
             be.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.chatbot.com/widget/plugin.js';
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(be, s);
         })();
-    </script>
+    </script> -->
     <!-- End of ChatBot code -->
-
+    <script>
+        function initFreshChat() {
+            window.fcWidget.init({
+                token: "93e4e878-d510-4c9f-9b19-47f55035fbb0",
+                host: "https://wchat.freshchat.com"
+            });
+        }
+        function initialize(i, t) { var e; i.getElementById(t) ? initFreshChat() : ((e = i.createElement("script")).id = t, e.async = !0, e.src = "https://wchat.freshchat.com/js/widget.js", e.onload = initFreshChat, i.head.appendChild(e)) } function initiateCall() { initialize(document, "Freshdesk Messaging-js-sdk") } window.addEventListener ? window.addEventListener("load", initiateCall, !1) : window.attachEvent("load", initiateCall, !1);
+    </script>
 </body>
 
 </html>
