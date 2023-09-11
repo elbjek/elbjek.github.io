@@ -1,0 +1,217 @@
+@import url("https://fonts.googleapis.com/css2?family=Bayon&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bayon&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bayon&family=Pacifico&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+@import "_variables";
+$bayon-font-family: "Bayon", sans-serif;
+$pacifico-font-family: "Pacifico", cursive;
+$jakarta-font-family: "Plus Jakarta Sans", sans-serif;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background-color: $background-white !important;
+}
+
+a {
+  color: inherit;
+  text-decoration: none !important;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: $bayon-font-family;
+}
+
+.hero-container {
+  background-color: $background-white;
+  height: 100vh;
+
+  .hero-content {
+    position: relative;
+  }
+  h1 {
+    font-family: $bayon-font-family;
+    font-size: 150px;
+    color: rgba($textLightGrey, 0.4);
+  }
+  .hero-text {
+    position: absolute;
+    font-family: $pacifico-font-family;
+    font-size: 101px;
+    bottom: -40px;
+    color: $blue;
+    display: flex;
+    &-firstname::after,
+    &-lastname::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      display: block;
+      background-repeat: no-repeat;
+      position: relative;
+      bottom: 15px;
+    }
+    &-firstname {
+      margin-right: 15px;
+      &::after {
+        background-image: url("/firstname_underline.svg");
+      }
+    }
+    &-lastname {
+      &::after {
+        background-image: url("/lastname_underline.svg");
+      }
+    }
+  }
+}
+
+.d-flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.scroll-down {
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+  writing-mode: vertical-rl;
+  display: flex;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  // height: 100%;
+  &-content {
+    font-family: $bayon-font-family;
+    display: flex;
+    align-items: center;
+    // height: 100%;
+    color: rgba($textLightGrey, 0.4);
+    &-text {
+      width: 100%;
+      display: block;
+      margin: 6px 0px;
+      font-size: 18px;
+      user-select: none;
+    }
+    &::before,
+    &::after {
+      content: "";
+      height: 3px;
+      background-color: rgba($textLightGrey, 0.4);
+    }
+    &::before {
+      // height: 76%; //at its highest
+      height: 40px; //at its smallest, load time
+      width: 3px;
+    }
+    &::after {
+      width: 3px;
+      height: 20px;
+    }
+    &-double-chevron {
+    }
+  }
+}
+
+.about-container {
+  min-height: 100vh;
+  height: 100%;
+  background-color: $background-orange;
+  color: $textWhite;
+  &-heading {
+    h2 {
+      font-size: 50px;
+      &::after {
+        content: "";
+        display: block;
+        background-image: url("/underline_blue.svg");
+        position: absolute;
+        height: 15px;
+        width: 115px;
+        background-repeat: no-repeat;
+        position: relative;
+        margin: 0 auto;
+      }
+    }
+    p {
+      width: 50%;
+    }
+    h2,
+    p {
+      text-align: center;
+      margin: 0 auto;
+    }
+  }
+  .about-info {
+  }
+}
+
+.experience-container {
+  background-color: $background-darkBlue;
+  color: $textWhite;
+}
+
+.asset-arrows {
+  height: 13px;
+  width: 50px;
+  background-image: url("/side-arrows-blue.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+//  .asset-arrows-blue
+
+.navbar-side {
+  position: absolute;
+  height: 100%;
+  bottom: 0;
+  left: 4rem;
+  ul {
+    display: flex;
+    flex-direction: column;
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      width: 3px;
+      background-color: $background-white;
+    }
+    &::before {
+      height: 100%;
+    }
+    &::after {
+      height: 15%;
+    }
+    li {
+      font-family: $bayon-font-family;
+      color: $textWhite;
+      a {
+        color: $textWhite;
+        &:hover {
+          text-decoration: underline !important;
+          color: rgba($textDarkBlue, 0.8);
+        }
+      }
+    }
+  }
+}
