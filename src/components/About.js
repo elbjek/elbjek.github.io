@@ -36,7 +36,7 @@ export default function About() {
           <div className="about-info d-flex align-items-center justify-content-center pt-5">
             {data.map((item, index) => (
               <>
-                <div className={` text-center`}>
+                <div className={` text-center`} key={`${index}_${item.title}`}>
                   <h3>{item.title}</h3>
                   <p className="pb-0 mb-0">{item.location}</p>
                   <p className="pb-0 mb-0">{item.degree}</p>

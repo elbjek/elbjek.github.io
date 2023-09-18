@@ -38,7 +38,8 @@ h1,
 h2,
 h3,
 h4,
-h5 {
+h5,
+h6 {
   font-family: $bayon-font-family;
 }
 
@@ -53,6 +54,18 @@ h5 {
     font-family: $bayon-font-family;
     font-size: 150px;
     color: rgba($textLightGrey, 0.4);
+    @media screen and (max-width: 1180px) {
+      font-size: 110px;
+    }
+    @media screen and (max-width: 900px) {
+      font-size: 75px;
+    }
+    @media screen and (max-width: 768px) {
+      font-size: 6vh;
+    }
+    @media screen and (max-width: 530px) {
+      font-size: 5vh;
+    }
   }
   .hero-text {
     position: absolute;
@@ -61,6 +74,13 @@ h5 {
     bottom: -40px;
     color: $blue;
     display: flex;
+    @media screen and (max-width: 900px) {
+      font-size: 65px;
+    }
+    @media screen and (max-width: 768px) {
+      font-size: 6vh;
+    }
+
     &-firstname::after,
     &-lastname::after {
       content: "";
@@ -213,5 +233,30 @@ h5 {
         }
       }
     }
+  }
+}
+
+.text-white,
+.text-white a {
+  color: $textWhite !important;
+}
+
+.text-dimmed,
+.text-dimmed a {
+  color: rgba($textWhite, 0.5) !important;
+}
+.experience-container-item.active {
+  .text-red {
+    color: $orange !important;
+  }
+}
+
+.font-2x {
+  p {
+    font-size: 18;
+    margin-bottom: 10px;
+  }
+  h4 {
+    font-size: 32px;
   }
 }

@@ -3,11 +3,13 @@ import Image from "next/image";
 import { Inter } from "next/font/google";
 import Hero from "@/components/Hero";
 import ScrollDown from "@/components/ScrollDown";
+
+import Career from "@/components/Career/Career";
 import About from "@/components/About";
-import Experience from "@/components/Experience";
+import { useState } from "react";
+import { Router, useRouter } from "next/router";
 
 const inter = Inter({ subsets: ["latin"] });
-
 export default function Home() {
   return (
     <>
@@ -21,7 +23,7 @@ export default function Home() {
         <ScrollDown />
         <Hero />
         <About />
-        <Experience />
+        <Career />
       </main>
     </>
   );
