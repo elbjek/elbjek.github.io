@@ -25,13 +25,13 @@ export const data = [
     slug: "twp",
   },
   {
-    company: "Target Traffic Ltd",
-    location: "Floriana, Malta",
-    position: "Junior Frontend Developer",
+    company: "Platin Gaming Ltd",
+    location: "Gzira, Malta",
+    position: "Junior HTML5 Game Developer",
     start_date: "August 2020 ",
     end_date: "October 2020",
     description: `I collaborated with designers, and other developers, to transform PSD/Figma files into dynamic, responsive code. My hands-on proficiency with technologies such as HTML5, CSS3, Sass, and Webpack, coupled with my adeptness in Javascript, jQuery, and Typescript, allowed me to effectively maintain front-end issues across diverse slot gaming and local platforms. Leveraging tools like GitLab and Jira, I efficiently managed project workflows, showcasing my commitment to delivering high-quality outcomes in a fast-paced and multicultural environment.`,
-    active: true,
+    active: false,
     icons: [
       {
         id: 5,
