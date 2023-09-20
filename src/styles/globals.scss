@@ -184,25 +184,42 @@ h6 {
       margin: 0 auto;
     }
   }
-  .about-info {
-  }
 }
 
 .experience-container {
   background-color: $background-darkBlue;
   color: $textWhite;
   &-content {
-    max-height: 500px;
+    // max-height: 500px;
     overflow: hidden;
   }
 }
 
 .asset-arrows {
-  height: 13px;
-  width: 50px;
-  background-image: url("/side-arrows-blue.svg");
   background-repeat: no-repeat;
   background-size: contain;
+  display: block;
+  position: absolute;
+  &-blue {
+    height: 13px;
+    width: 50px;
+    background-image: url("/side-arrows-blue.svg");
+  }
+  &-double-vertical {
+    height: 47px;
+    width: 10px;
+    background-image: url("/chevron-double-arrow.svg");
+
+    &.-bottom {
+      bottom: 15px;
+    }
+  }
+  &-double-vertical-top {
+    bottom: 230px;
+  }
+  &-double-vertical-bottom {
+    bottom: 15px;
+  }
 }
 //  .asset-arrows-blue
 
@@ -254,7 +271,7 @@ h6 {
 .font-2x {
   p {
     transition: all 0.5s ease;
-    font-size: 18;
+    font-size: 18px;
     margin-bottom: 10px;
   }
   h4 {
@@ -280,8 +297,8 @@ h6 {
   overflow: hidden;
   .carousel-inner {
     position: relative;
-    max-height: 300px;
-    height: 300px;
+    max-height: 530px;
+    height: 530px;
     // overflow-y: scroll;
     &::before,
     &::after {
@@ -289,7 +306,7 @@ h6 {
       z-index: 1;
       position: absolute;
       width: 100%;
-      height: 110px;
+      height: 250px;
       pointer-events: none;
       left: 0;
     }
@@ -312,10 +329,20 @@ h6 {
     }
     .carousel-slide {
       position: absolute;
-      top: 125px;
+      top: 200px;
       transition: transform 0.2s ease, opacity 0s ease;
       text-align: left;
       opacity: 0;
+      height: 200px;
+      width: 100%;
+      .carousel-slide-block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+        justify-content: space-between;
+        text-align: center;
+      }
     }
     .carousel-slide.visible {
       opacity: 1;
