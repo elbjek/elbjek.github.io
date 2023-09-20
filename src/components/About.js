@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 export default function About() {
   const data = [
     {
+      id: 1,
       title: "SAE Institute Belgrade",
       location: "Belgrade, Serbia",
       start_date: "2017",
@@ -10,6 +11,7 @@ export default function About() {
       degree: "Bachelor of Science in Web Development",
     },
     {
+      id: 2,
       title: "Belgrade Polytechnic",
       location: "Belgrade, Serbia",
       start_date: "2014",
@@ -35,20 +37,20 @@ export default function About() {
           </div>
           <div className="about-info d-flex align-items-center justify-content-center pt-5">
             {data.map((item, index) => (
-              <>
-                <div
-                  className={` text-center`}
-                  key={`${index}_${item.title} _${index}`}
-                >
+              <div key={`${item.id}_${item.title} _${index}`}>
+                <div className={` text-center`}>
                   <h3>{item.title}</h3>
                   <p className="pb-0 mb-0">{item.location}</p>
                   <p className="pb-0 mb-0">{item.degree}</p>
                   <p className="pb-0 mb-0">Completed in {item.end_date}</p>
                 </div>
                 {index !== data.length - 1 && (
-                  <span className="asset-arrows asset-arrows-blue"></span>
+                  <span
+                    key={`${item.title}_${index}`}
+                    className="asset-arrows asset-arrows-blue"
+                  ></span>
                 )}
-              </>
+              </div>
             ))}
           </div>
         </div>

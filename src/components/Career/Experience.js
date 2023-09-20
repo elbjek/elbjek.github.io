@@ -25,13 +25,13 @@ export const data = [
     slug: "twp",
   },
   {
-    company: "Target Traffic Ltd",
-    location: "Floriana, Malta",
-    position: "Junior Frontend Developer",
-    start_date: "August 2020 ",
+    company: "Platin Gaming Ltd",
+    location: "Gzira, Malta",
+    position: "Junior HTML5 Game Developer",
+    start_date: "July 2020 ",
     end_date: "October 2020",
     description: `I collaborated with designers, and other developers, to transform PSD/Figma files into dynamic, responsive code. My hands-on proficiency with technologies such as HTML5, CSS3, Sass, and Webpack, coupled with my adeptness in Javascript, jQuery, and Typescript, allowed me to effectively maintain front-end issues across diverse slot gaming and local platforms. Leveraging tools like GitLab and Jira, I efficiently managed project workflows, showcasing my commitment to delivering high-quality outcomes in a fast-paced and multicultural environment.`,
-    active: true,
+    active: false,
     icons: [
       {
         id: 5,
@@ -205,68 +205,63 @@ export default function Experience() {
                   }}
                 >
                   {data.map((item, index) => (
-                    <>
-                      <div
-                        className={`carousel-slide experience-container-item d-flex align-items-center justify-content-center ${
-                          activeIndex === index
-                            ? "active font-2x"
-                            : "text-dimmed"
-                        } ${
-                          Math.abs(determinePlacement(index)) <=
-                          visibleStyleThreshold
-                            ? "visible"
-                            : ""
-                        }`}
-                        key={`${index}_${item.company}`}
-                        role="button"
-                        onClick={() => {
-                          setActiveIndex(index);
-                        }}
+                    <div
+                      className={`carousel-slide experience-container-item d-flex align-items-center justify-content-center ${
+                        activeIndex === index ? "active font-2x" : "text-dimmed"
+                      } ${
+                        Math.abs(determinePlacement(index)) <=
+                        visibleStyleThreshold
+                          ? "visible"
+                          : ""
+                      }`}
+                      key={`${index}_${item.company}`}
+                      role="button"
+                      onClick={() => {
+                        setActiveIndex(index);
+                      }}
+                      style={{
+                        transform: `translateY(${determinePlacement(index)}px)`,
+                      }}
+                    >
+                      <span
                         style={{
                           transform: `translateY(${determinePlacement(
                             index
                           )}px)`,
                         }}
-                      >
-                        <span
-                          style={{
-                            transform: `translateY(${determinePlacement(
-                              index
-                            )}px)`,
-                          }}
-                          className={` asset-arrows asset-arrows-double-vertical asset-arrows-double-vertical-top
+                        key={`${index}_${item.company}_${item.slug}`}
+                        className={` asset-arrows asset-arrows-double-vertical asset-arrows-double-vertical-top
                          
                           `}
-                        ></span>
-                        <div className="carousel-slide-block">
-                          <div className="carousel-slide-heading">
-                            <h4
-                              className={`${
-                                activeIndex === index ? "text-red" : ""
-                              }`}
-                            >
-                              {item.company}
-                            </h4>
-                            <p>{item.location}</p>
-                            <p>
-                              {item.start_date} - {item.end_date}
-                            </p>
-                          </div>
-                          {/* {index !== data.length - 1 && (
-                          )} */}
+                      ></span>
+                      <div className="carousel-slide-block">
+                        <div className="carousel-slide-heading">
+                          <h4
+                            className={`${
+                              activeIndex === index ? "text-red" : ""
+                            }`}
+                          >
+                            {item.company}
+                          </h4>
+                          <p>{item.location}</p>
+                          <p>
+                            {item.start_date} - {item.end_date}
+                          </p>
                         </div>
-                        <span
-                          style={{
-                            transform: `translateY(${determinePlacement(
-                              index
-                            )}px)`,
-                          }}
-                          className={` asset-arrows asset-arrows-double-vertical asset-arrows-double-vertical-bottom
+                        {/* {index !== data.length - 1 && (
+                          )} */}
+                      </div>
+                      <span
+                        style={{
+                          transform: `translateY(${determinePlacement(
+                            index
+                          )}px)`,
+                        }}
+                        className={` asset-arrows asset-arrows-double-vertical asset-arrows-double-vertical-bottom
                          
                           `}
-                        ></span>
-                      </div>
-                    </>
+                      ></span>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -278,28 +273,26 @@ export default function Experience() {
         <Col>
           {data.map((item, index) =>
             activeIndex === index ? (
-              <>
-                <div className="text-left" key={`${item.company}_${index}`}>
-                  {" "}
-                  <h5 className="">Key Technologies</h5>
-                  <div className="experience-container-icons d-flex">
-                    {item.icons.map((icon) => (
-                      <p
-                        className="mx-2 d-inline-block text-red"
-                        key={`${icon.title} + ${index + 1}`}
-                        style={{
-                          fontSize: "20px",
-                          width: "20px",
-                        }}
-                      >
-                        {/* <FontAwesomeIcon icon={`fab ${icon.icon}`} /> */}
-                      </p>
-                    ))}
-                  </div>
-                  <h5>Description</h5>
-                  <p className="mt-4">{item.description}</p>
+              <div className="text-left" key={`${item.company}_${index}`}>
+                {" "}
+                <h5 className="">Key Technologies</h5>
+                <div className="experience-container-icons d-flex">
+                  {item.icons.map((icon) => (
+                    <p
+                      className="mx-2 d-inline-block text-red"
+                      key={`${icon.title} + ${item.id}`}
+                      style={{
+                        fontSize: "20px",
+                        width: "20px",
+                      }}
+                    >
+                      {/* <FontAwesomeIcon icon={`fab ${icon.icon}`} /> */}
+                    </p>
+                  ))}
                 </div>
-              </>
+                <h5>Description</h5>
+                <p className="mt-4">{item.description}</p>
+              </div>
             ) : null
           )}
         </Col>
