@@ -18,7 +18,7 @@ export default function About() {
     },
   ];
   return (
-    <div className="position-relative">
+    <div className="position-relative" id="#about">
       <Navbar />
       <div className=" about-container p-5 d-flex align-items-center">
         <div className="container">
@@ -36,7 +36,10 @@ export default function About() {
           <div className="about-info d-flex align-items-center justify-content-center pt-5">
             {data.map((item, index) => (
               <>
-                <div className={` text-center`} key={`${index}_${item.title}`}>
+                <div
+                  className={` text-center`}
+                  key={`${index}_${item.title} _${index}`}
+                >
                   <h3>{item.title}</h3>
                   <p className="pb-0 mb-0">{item.location}</p>
                   <p className="pb-0 mb-0">{item.degree}</p>

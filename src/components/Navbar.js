@@ -19,17 +19,17 @@ export default function Navbar() {
     <nav className="navbar-side py-5">
       <ul className="p-0 h-100">
         <li>
-          <a href="" className="">
+          <a href="#about" className="">
             About
           </a>
         </li>
         <li>
-          <a href="" className="">
-            Projects
+          <a href="#career" className="">
+            Career
           </a>
         </li>
         <li>
-          <a href="" className="">
+          <a href="#contact" className="">
             Contact
           </a>
         </li>

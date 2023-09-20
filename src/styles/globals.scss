@@ -50,6 +50,7 @@ h6 {
   .hero-content {
     position: relative;
   }
+  user-select: none;
   h1 {
     font-family: $bayon-font-family;
     font-size: 150px;
@@ -183,21 +184,42 @@ h6 {
       margin: 0 auto;
     }
   }
-  .about-info {
-  }
 }
 
 .experience-container {
   background-color: $background-darkBlue;
   color: $textWhite;
+  &-content {
+    // max-height: 500px;
+    overflow: hidden;
+  }
 }
 
 .asset-arrows {
-  height: 13px;
-  width: 50px;
-  background-image: url("/side-arrows-blue.svg");
   background-repeat: no-repeat;
   background-size: contain;
+  display: block;
+  position: absolute;
+  &-blue {
+    height: 13px;
+    width: 50px;
+    background-image: url("/side-arrows-blue.svg");
+  }
+  &-double-vertical {
+    height: 47px;
+    width: 10px;
+    background-image: url("/chevron-double-arrow.svg");
+
+    &.-bottom {
+      bottom: 15px;
+    }
+  }
+  &-double-vertical-top {
+    bottom: 230px;
+  }
+  &-double-vertical-bottom {
+    bottom: 15px;
+  }
 }
 //  .asset-arrows-blue
 
@@ -245,18 +267,85 @@ h6 {
 .text-dimmed a {
   color: rgba($textWhite, 0.5) !important;
 }
-.experience-container-item.active {
-  .text-red {
-    color: $orange !important;
-  }
-}
 
 .font-2x {
   p {
-    font-size: 18;
+    transition: all 0.5s ease;
+    font-size: 18px;
     margin-bottom: 10px;
   }
   h4 {
+    transition: all 0.2s ease;
+
     font-size: 32px;
+  }
+}
+
+.text-red {
+  color: $orange !important;
+}
+//
+.text-left {
+  text-align: left;
+}
+
+.carousel-wrapper {
+  padding: 20px;
+  overflow: hidden;
+}
+.carousel-slides {
+  overflow: hidden;
+  .carousel-inner {
+    position: relative;
+    max-height: 530px;
+    height: 530px;
+    // overflow-y: scroll;
+    &::before,
+    &::after {
+      content: "";
+      z-index: 1;
+      position: absolute;
+      width: 100%;
+      height: 250px;
+      pointer-events: none;
+      left: 0;
+    }
+
+    &::before {
+      top: 0;
+      background: linear-gradient(
+        0deg,
+        hsla(0, 0%, 100%, 0) 0%,
+        $darkBlue 100%
+      );
+    }
+    &::after {
+      bottom: 0;
+      background: linear-gradient(
+        0deg,
+        $darkBlue 0%,
+        hsla(0, 0%, 100%, 0) 100%
+      );
+    }
+    .carousel-slide {
+      position: absolute;
+      top: 200px;
+      transition: transform 0.2s ease, opacity 0s ease;
+      text-align: left;
+      opacity: 0;
+      height: 200px;
+      width: 100%;
+      .carousel-slide-block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+        justify-content: space-between;
+        text-align: center;
+      }
+    }
+    .carousel-slide.visible {
+      opacity: 1;
+    }
   }
 }
