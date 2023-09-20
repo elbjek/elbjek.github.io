@@ -11,7 +11,7 @@ export default function Career() {
     setIsTabActive(tab);
   };
   return (
-    <div className="experience-container text-center  p-5">
+    <div className="experience-container text-center  p-5" id="career">
       <div className="d-flex justify-content-center">
         <h2
           className={`${
