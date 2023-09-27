@@ -1,10 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Bayon&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Bayon&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Bayon&family=Pacifico&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+// @import url("https://fonts.googleapis.com/css2?family=Bayon&display=swap");
+// @import url("https://fonts.googleapis.com/css2?family=Bayon&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+// @import url("https://fonts.googleapis.com/css2?family=Bayon&family=Pacifico&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+@import "fonts";
 @import "_variables";
 $bayon-font-family: "Bayon", sans-serif;
 $pacifico-font-family: "Pacifico", cursive;
-$jakarta-font-family: "Plus Jakarta Sans", sans-serif;
+$jakarta-font-family: "PlusJakartaRegular", sans-serif;
 * {
   box-sizing: border-box;
   padding: 0;
@@ -20,6 +21,7 @@ body {
 body {
   color: rgb(var(--foreground-rgb));
   background-color: $background-white !important;
+  font-family: $jakarta-font-family !important;
 }
 
 a {
