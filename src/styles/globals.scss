@@ -3,9 +3,14 @@
 // @import url("https://fonts.googleapis.com/css2?family=Bayon&family=Pacifico&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
 @import "fonts";
 @import "_variables";
-$bayon-font-family: "Bayon", sans-serif;
-$pacifico-font-family: "Pacifico", cursive;
-$jakarta-font-family: "PlusJakartaRegular", sans-serif;
+@import "arrows";
+
+@import "hero";
+@import "about";
+@import "experience";
+@import "scroll-down";
+@import "navbar";
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -45,69 +50,6 @@ h6 {
   font-family: $bayon-font-family;
 }
 
-.hero-container {
-  background-color: $background-white;
-  height: 100vh;
-
-  .hero-content {
-    position: relative;
-  }
-  user-select: none;
-  h1 {
-    font-family: $bayon-font-family;
-    font-size: 150px;
-    color: rgba($textLightGrey, 0.4);
-    @media screen and (max-width: 1180px) {
-      font-size: 110px;
-    }
-    @media screen and (max-width: 900px) {
-      font-size: 75px;
-    }
-    @media screen and (max-width: 768px) {
-      font-size: 6vh;
-    }
-    @media screen and (max-width: 530px) {
-      font-size: 5vh;
-    }
-  }
-  .hero-text {
-    position: absolute;
-    font-family: $pacifico-font-family;
-    font-size: 101px;
-    bottom: -40px;
-    color: $blue;
-    display: flex;
-    @media screen and (max-width: 900px) {
-      font-size: 65px;
-    }
-    @media screen and (max-width: 768px) {
-      font-size: 6vh;
-    }
-
-    &-firstname::after,
-    &-lastname::after {
-      content: "";
-      width: 100%;
-      height: 100%;
-      display: block;
-      background-repeat: no-repeat;
-      position: relative;
-      bottom: 15px;
-    }
-    &-firstname {
-      margin-right: 15px;
-      &::after {
-        background-image: url("/firstname_underline.svg");
-      }
-    }
-    &-lastname {
-      &::after {
-        background-image: url("/lastname_underline.svg");
-      }
-    }
-  }
-}
-
 .d-flex-center {
   display: flex;
   align-items: center;
@@ -115,150 +57,7 @@ h6 {
   flex-direction: column;
 }
 
-.scroll-down {
-  position: absolute;
-  bottom: 0;
-  right: 10px;
-  writing-mode: vertical-rl;
-  display: flex;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  // height: 100%;
-  &-content {
-    font-family: $bayon-font-family;
-    display: flex;
-    align-items: center;
-    // height: 100%;
-    color: rgba($textLightGrey, 0.4);
-    &-text {
-      width: 100%;
-      display: block;
-      margin: 6px 0px;
-      font-size: 18px;
-      user-select: none;
-    }
-    &::before,
-    &::after {
-      content: "";
-      height: 3px;
-      background-color: rgba($textLightGrey, 0.4);
-    }
-    &::before {
-      // height: 76%; //at its highest
-      height: 40px; //at its smallest, load time
-      width: 3px;
-    }
-    &::after {
-      width: 3px;
-      height: 20px;
-    }
-    &-double-chevron {
-    }
-  }
-}
-
-.about-container {
-  min-height: 100vh;
-  height: 100%;
-  background-color: $background-orange;
-  color: $textWhite;
-  &-heading {
-    h2 {
-      font-size: 50px;
-      &::after {
-        content: "";
-        display: block;
-        background-image: url("/underline_blue.svg");
-        position: absolute;
-        height: 15px;
-        width: 115px;
-        background-repeat: no-repeat;
-        position: relative;
-        margin: 0 auto;
-      }
-    }
-    p {
-      width: 50%;
-    }
-    h2,
-    p {
-      text-align: center;
-      margin: 0 auto;
-    }
-  }
-}
-
-.experience-container {
-  background-color: $background-darkBlue;
-  color: $textWhite;
-  &-content {
-    // max-height: 500px;
-    overflow: hidden;
-  }
-}
-
-.asset-arrows {
-  background-repeat: no-repeat;
-  background-size: contain;
-  display: block;
-  position: absolute;
-  &-blue {
-    height: 13px;
-    width: 50px;
-    background-image: url("/side-arrows-blue.svg");
-  }
-  &-double-vertical {
-    height: 47px;
-    width: 10px;
-    background-image: url("/chevron-double-arrow.svg");
-
-    &.-bottom {
-      bottom: 15px;
-    }
-  }
-  &-double-vertical-top {
-    bottom: 230px;
-  }
-  &-double-vertical-bottom {
-    bottom: 15px;
-  }
-}
 //  .asset-arrows-blue
-
-.navbar-side {
-  position: absolute;
-  height: 100%;
-  bottom: 0;
-  left: 4rem;
-  ul {
-    display: flex;
-    flex-direction: column;
-    &::before,
-    &::after {
-      content: "";
-      display: block;
-      width: 3px;
-      background-color: $background-white;
-    }
-    &::before {
-      height: 100%;
-    }
-    &::after {
-      height: 15%;
-    }
-    li {
-      font-family: $bayon-font-family;
-      color: $textWhite;
-      a {
-        color: $textWhite;
-        &:hover {
-          text-decoration: underline !important;
-          color: rgba($textDarkBlue, 0.8);
-        }
-      }
-    }
-  }
-}
 
 .text-white,
 .text-white a {
@@ -289,71 +88,4 @@ h6 {
 //
 .text-left {
   text-align: left;
-}
-
-.carousel-wrapper {
-  padding: 20px;
-  overflow: hidden;
-}
-.carousel-slides {
-  overflow: hidden;
-  .carousel-inner {
-    position: relative;
-    max-height: 530px;
-    height: 530px;
-    // overflow-y: scroll;
-    &::before,
-    &::after {
-      content: "";
-      z-index: 1;
-      position: absolute;
-      width: 100%;
-      height: 250px;
-      pointer-events: none;
-      left: 0;
-    }
-
-    &::before {
-      top: 0;
-      background: linear-gradient(
-        0deg,
-        hsla(0, 0%, 100%, 0) 0%,
-        $darkBlue 100%
-      );
-    }
-    &::after {
-      bottom: 0;
-      background: linear-gradient(
-        0deg,
-        $darkBlue 0%,
-        hsla(0, 0%, 100%, 0) 100%
-      );
-    }
-    .carousel-slide {
-      position: absolute;
-      top: 200px;
-      transition: transform 0.2s ease, opacity 0s ease;
-      text-align: left;
-      opacity: 0;
-      height: 200px;
-      width: 100%;
-
-      .carousel-slide-block {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        height: 100%;
-        justify-content: space-between;
-        text-align: center;
-        &:hover {
-          .carousel-slide-heading {
-            color: $white;
-          }
-        }
-      }
-    }
-    .carousel-slide.visible {
-      opacity: 1;
-    }
-  }
 }

@@ -1,0 +1,43 @@
+@import "_variables";
+
+.scroll-down {
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+  writing-mode: vertical-rl;
+  display: flex;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  // height: 100%;
+  &-content {
+    font-family: $bayon-font-family;
+    display: flex;
+    align-items: center;
+    // height: 100%;
+    color: rgba($textLightGrey, 0.4);
+    &-text {
+      width: 100%;
+      display: block;
+      margin: 6px 0px;
+      font-size: 18px;
+      user-select: none;
+    }
+    &::before,
+    &::after {
+      content: "";
+      height: 3px;
+      background-color: rgba($textLightGrey, 0.4);
+    }
+    &::before {
+      // height: 76%; //at its highest
+      height: 40px; //at its smallest, load time
+      width: 3px;
+    }
+    &::after {
+      width: 3px;
+      height: 20px;
+    }
+    &-double-chevron {
+    }
+  }
+}

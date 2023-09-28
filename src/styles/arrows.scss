@@ -1,0 +1,26 @@
+.asset-arrows {
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: block;
+  position: absolute;
+  &-blue {
+    height: 13px;
+    width: 50px;
+    background-image: url("/side-arrows-blue.svg");
+  }
+  &-double-vertical {
+    height: 47px;
+    width: 10px;
+    background-image: url("/chevron-double-arrow.svg");
+
+    &.-bottom {
+      bottom: 15px;
+    }
+  }
+  &-double-vertical-top {
+    bottom: 230px;
+  }
+  &-double-vertical-bottom {
+    bottom: 15px;
+  }
+}
