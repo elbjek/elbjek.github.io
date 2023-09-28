@@ -2,7 +2,7 @@ import { Row, Col, Button } from "react-bootstrap";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 library.add(fab);
 
 export const data = [
@@ -132,6 +132,7 @@ export const data = [
 
 export default function Experience() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const containerRef = useRef(null);
 
   // Used to determine which items appear above the active item
   const halfwayIndex = Math.ceil(data.length / 2);
@@ -146,6 +147,7 @@ export default function Experience() {
   const visibleStyleThreshold = shuffleThreshold / 2;
 
   const determinePlacement = (itemIndex) => {
+    // no movement needed
     if (activeIndex === itemIndex) return 0;
 
     if (itemIndex >= halfwayIndex) {
@@ -187,22 +189,19 @@ export default function Experience() {
       return prevDirectionIndex - 1;
     });
   };
-  const handleScroll = (e, activeIndex) => {
-    console.log(e);
-  };
+
   return (
     <div className="experience-container-content p-5">
       <Row className="align-items-center">
         <Col>
           <div className="carousel-wrapper">
-            <Button onClick={() => handleClick("prev")}>Prev</Button>
+            {/* <Button onClick={() => handleClick("prev")}>Prev</Button> */}
             <div className="carousel">
               <div className="carousel-slides">
                 <div
                   className="carousel-inner"
-                  onScroll={(e) => {
-                    handleScroll(activeIndex, e);
-                  }}
+                  ref={containerRef}
+                  onScroll={() => {}}
                 >
                   {data.map((item, index) => (
                     <div
@@ -230,9 +229,7 @@ export default function Experience() {
                           )}px)`,
                         }}
                         key={`${index}_${item.company}_${item.slug}`}
-                        className={` asset-arrows asset-arrows-double-vertical asset-arrows-double-vertical-top
-                         
-                          `}
+                        className={`asset-arrows asset-arrows-double-vertical asset-arrows-double-vertical-top`}
                       ></span>
                       <div className="carousel-slide-block">
                         <div className="carousel-slide-heading">
@@ -248,8 +245,6 @@ export default function Experience() {
                             {item.start_date} - {item.end_date}
                           </p>
                         </div>
-                        {/* {index !== data.length - 1 && (
-                          )} */}
                       </div>
                       <span
                         style={{
@@ -257,16 +252,14 @@ export default function Experience() {
                             index
                           )}px)`,
                         }}
-                        className={` asset-arrows asset-arrows-double-vertical asset-arrows-double-vertical-bottom
-                         
-                          `}
+                        className={`asset-arrows asset-arrows-double-vertical asset-arrows-double-vertical-bottom`}
                       ></span>
                     </div>
                   ))}
                 </div>
               </div>
             </div>
-            <Button onClick={() => handleClick("next")}>Next</Button>
+            {/* <Button onClick={() => handleClick("next")}>Next</Button> */}
           </div>
         </Col>
 
@@ -285,9 +278,7 @@ export default function Experience() {
                         fontSize: "20px",
                         width: "20px",
                       }}
-                    >
-                      {/* <FontAwesomeIcon icon={`fab ${icon.icon}`} /> */}
-                    </p>
+                    ></p>
                   ))}
                 </div>
                 <h5>Description</h5>
