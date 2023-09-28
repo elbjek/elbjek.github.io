@@ -337,6 +337,7 @@ h6 {
       opacity: 0;
       height: 200px;
       width: 100%;
+
       .carousel-slide-block {
         display: flex;
         flex-direction: column;
@@ -344,6 +345,11 @@ h6 {
         height: 100%;
         justify-content: space-between;
         text-align: center;
+        &:hover {
+          .carousel-slide-heading {
+            color: $white;
+          }
+        }
       }
     }
     .carousel-slide.visible {
