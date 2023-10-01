@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { Button } from "react-bootstrap";
 export default function Navbar() {
   const data = [
     {
@@ -15,30 +17,45 @@ export default function Navbar() {
       degree: "Bachelor of Arts in Design",
     },
   ];
+  const [isNavVisible, setIsNavVisible] = useState(false);
   return (
-    <nav className="navbar-side py-5">
-      <ul className="p-0 h-100">
-        <li>
-          <a href="#about" className="">
-            About
-          </a>
-        </li>
-        <li>
-          <a href="#career" className="">
-            Career
-          </a>
-        </li>
-        <li>
-          <a href="#contact" className="">
-            Contact
-          </a>
-        </li>
-        <li>
-          <a href="" className="">
-            En
-          </a>
-        </li>
-      </ul>
-    </nav>
+    <div>
+      <Button
+        variant="link"
+        className={`nav-burger p-0 ${isNavVisible ? "active" : ""}`}
+        role="button"
+        onClick={() => {
+          setIsNavVisible(!isNavVisible);
+        }}
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </Button>
+      <nav className={`navbar-side  ${isNavVisible ? "visible" : ""}`}>
+        <ul className="p-0 h-100">
+          <li>
+            <a href="#about" className="">
+              About
+            </a>
+          </li>
+          <li>
+            <a href="#career" className="">
+              Career
+            </a>
+          </li>
+          <li>
+            <a href="#contact" className="">
+              Contact
+            </a>
+          </li>
+          <li>
+            <a href="" className="">
+              En
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
   );
 }
